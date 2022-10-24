@@ -22,7 +22,7 @@ const canvasSize = 23;
 let score = 0;
 
 
-//load snake starting position
+//snake-load
 let snake = [];
 
 snake[0] = 
@@ -31,7 +31,7 @@ snake[0] =
 	y: Math.floor((canvasSize/2)) * box
 };
 
-//set direction getting pressed by arrow keys
+//directions
 let dir;
 var pressed = false;
 document.addEventListener('keydown', direction);
@@ -62,7 +62,7 @@ function direction(event){
 }
 
 
-// set the location of our food
+// food
 let food = {
 	x: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box,
 	y: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box 
@@ -88,7 +88,7 @@ function draw(){
 }
 	}
 
-	//move the snake head
+	//move snake
 	let snakeX = snake[0].x;
 	let snakeY = snake[0].y;
 
@@ -102,7 +102,7 @@ function draw(){
 	 snakeY += box;
 
 
-	// if the snake eats the food
+	// collect food
 	if(snakeX == food.x && snakeY == food.y)
 	{
 		score+=1;
@@ -124,7 +124,7 @@ function draw(){
 	
 
 
-	//check collision
+	//wall
 	function collision(head, array){
 		for(let i = 0; i < array.length; i++)
 		{
